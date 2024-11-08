@@ -47,12 +47,15 @@ const ProductList = () => {
     }, [onSendData])
 
     const testButton = useCallback(() => {
-        console.log("ТЕСТ")
+        const data = {
+            queryId,
+        }
         fetch('http://89.178.216.53:80/test', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            }
+            },
+            body: JSON.stringify(data)
         })
     })
 
