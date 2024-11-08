@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
-import './ProductList.css';
-import ProductItem from "../ProductItem/ProductItem";
-import {useTelegram} from "../../hooks/useTelegram";
-import {useCallback, useEffect} from "react";
+import React, { useCallback, useEffect, useState } from 'react'
+import { useTelegram } from "../../hooks/useTelegram"
+import ProductItem from "../ProductItem/ProductItem"
+import './ProductList.css'
 
 const products = [
     {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
@@ -31,7 +30,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://85.119.146.179:8000/web-data', {
+        fetch('http://89.178.216.53:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
