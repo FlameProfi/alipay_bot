@@ -30,7 +30,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://89.178.216.53:8000/web-data', {
+        fetch('http://89.178.216.53:80/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,6 +45,16 @@ const ProductList = () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
+
+    const testButton = useCallback(() => {
+        console.log("ТЕСТ")
+        fetch('http://89.178.216.53:80/test', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+    })
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -77,6 +87,7 @@ const ProductList = () => {
                     className={'item'}
                 />
             ))}
+            <button onClick={() => testButton()}>Проверка</button>
         </div>
     );
 };
