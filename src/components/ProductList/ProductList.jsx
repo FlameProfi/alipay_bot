@@ -30,7 +30,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://89.178.216.53:80/web-data', {
+        fetch('https://testbot-nebeadidd.amvera.io/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const ProductList = () => {
         const data = {
             queryId,
         }
-        fetch('http://89.178.216.53:80/test', {
+        fetch('https://testbot-nebeadidd.amvera.io/test', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
