@@ -25,6 +25,8 @@ const ProductList = () => {
     const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(() => {
+        tg.showAlert("Test allert");
+        tg.HapticFeedback.impactOccurred('heavy')
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
@@ -41,6 +43,7 @@ const ProductList = () => {
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
+        tg.useCallback
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
