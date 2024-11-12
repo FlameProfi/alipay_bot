@@ -2,13 +2,14 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTelegram } from "../../../hooks/useTelegram"
 import './assets/addAccount.css'
+import warning_ico from './assets/warning_ico.svg'
 
 const AddAccount = () => {
-    const {tg, queryId} = useTelegram();
+    const {tg, user, queryId} = useTelegram();
     const navigate = useNavigate();
 		const emailRef = useRef(null);
 		let isChecked = false;
-
+		if(!user) return navigate('/menu', {replace: true});
 		tg.MainButton.show();
 		tg.MainButton.setParams({
 				text: `Отправить данные`
@@ -16,7 +17,7 @@ const AddAccount = () => {
 
 		const onSendData = useCallback(() => {
 			if(isChecked == null) return tg.showAlert("Заполните все поля");
-			if(emailRef.current.value == null) return tg.showAlert("Заполните все поля");
+			if(!emailRef.current.value) return tg.showAlert("Заполните все поля");
 			tg.showAlert("Данные отправлены успешно");
 			tg.HapticFeedback.impactOccurred('heavy')
 			const data = {
@@ -31,6 +32,7 @@ const AddAccount = () => {
 					},
 					body: JSON.stringify(data)
 			})
+			navigate("/home")
 	}, [])
 
 	useEffect(() => {
@@ -67,7 +69,13 @@ const AddAccount = () => {
 							<p>Паспорт/Рисовка</p>
 							<input type="file" />
 							</div>
-							{/* <button onClick={() => check()}>ПРОГНАТЬ</button> */}
+							{/* <button onClick={() => onSendData()}>ПРОГНАТЬ</button> */}
+						</div>
+						<div className={'warning'}>
+							<div className={'warning_ico'}>
+								<img src={warning_ico} alt="" />
+							</div>
+							<p>Пароль от почты и аккаунта должен быть <span>098smvbt</span></p>
 						</div>
 						</div>
         </div>

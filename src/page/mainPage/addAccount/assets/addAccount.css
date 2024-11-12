@@ -20,6 +20,7 @@
 		}
 
 		.input_item_checkbox{
+			user-select: none;
 			p{
 				font-family: 'Gilroy';
 				font-style: normal;
@@ -63,6 +64,7 @@
 		}
 
 		.inputs{
+			user-select: none;
 			display: flex;
 			flex-direction: column;
 			gap: 15px;
@@ -108,6 +110,44 @@
 				flex-grow: 1;
 			}
 		}
+		}
+		.warning{
+			padding: 10px;
+			width: 250px;
+			height: 80px;
+			background-color: #2b2b2b;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 15px;
+			text-align: center;
+
+			.warning_ico{
+				img{
+					width: 40px;
+					height: 40px;
+				}
+			}
+
+			p{
+				font-family: 'Gilroy';
+				font-style: normal;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 19px;
+				color: #ffffff7d;
+				opacity: 0.6;
+				span{
+					font-family: 'Gilroy';
+					font-style: normal;
+					font-weight: 600;
+					font-size: 16px;
+					line-height: 19px;
+					color: #fff;
+					opacity: 1;
+				}
+			}
+
 		}
 	}
 }
