@@ -26,7 +26,7 @@ const AddAccount = () => {
 					queryId,
 					userId: tg.user.userId,
 			}
-			fetch('https://testbot-nebeadidd.amvera.io/added-account', {
+			fetch('https://bottg-nebeadidd.amvera.io/user', {
 					method: 'POST',
 					headers: {
 							'Content-Type': 'application/json',
