@@ -27,9 +27,6 @@ const ProductList = () => {
     const onSendData = useCallback(() => {
         tg.showAlert("Test allert");
         tg.HapticFeedback.impactOccurred('heavy')
-        navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(function (stream) {
-            console.log(ogogogog)
-        });
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
