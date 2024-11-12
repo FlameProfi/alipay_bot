@@ -22,7 +22,7 @@ const AddAccount = () => {
 					email: emailRef.current.value,
 					pasport: isChecked,
 					queryId,
-					userId: tg.user.id,
+					userId: user.id,
 			}
 			fetch('https://bottg-nebeadidd.amvera.io/user', {
 					method: 'POST',
