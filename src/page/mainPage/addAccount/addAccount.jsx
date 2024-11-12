@@ -18,8 +18,6 @@ const AddAccount = () => {
 		const onSendData = useCallback(() => {
 			if(isChecked == null) return tg.showAlert("Заполните все поля");
 			if(!emailRef.current.value) return tg.showAlert("Заполните все поля");
-			tg.showAlert("Данные отправлены успешно");
-			tg.HapticFeedback.impactOccurred('heavy')
 			const data = {
 					email: emailRef.current.value,
 					pasport: isChecked,
@@ -33,6 +31,8 @@ const AddAccount = () => {
 					},
 					body: JSON.stringify(data)
 			})
+			tg.showAlert("Данные отправлены успешно");
+			tg.HapticFeedback.impactOccurred('heavy')
 			navigate("/home")
 	}, [])
 
@@ -70,7 +70,7 @@ const AddAccount = () => {
 							<p>Паспорт/Рисовка</p>
 							<input type="file" />
 							</div>
-							{/* <button onClick={() => onSendData()}>ПРОГНАТЬ</button> */}
+							<button onClick={() => onSendData()}>ПРОГНАТЬ</button>
 						</div>
 						<div className={'warning'}>
 							<div className={'warning_ico'}>
