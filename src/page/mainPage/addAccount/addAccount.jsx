@@ -12,7 +12,7 @@ const AddAccount = () => {
 		if(!user) return navigate('/menu', {replace: true});
 		tg.MainButton.show();
 		tg.MainButton.setParams({
-				text: `Отправить данные`
+				text: `Отправить аккаунт`
 		})
 
 		const onSendData = useCallback(() => {
