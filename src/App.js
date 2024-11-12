@@ -1,10 +1,12 @@
-import './App.css';
-import {useEffect} from "react";
-import {useTelegram} from "./hooks/useTelegram";
-import Header from "./components/Header/Header";
-import {Route, Routes} from 'react-router-dom'
-import ProductList from "./components/ProductList/ProductList";
-import Form from "./components/Form/Form";
+import { useEffect } from "react"
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import Form from "./components/Form/Form"
+import ProductList from "./components/ProductList/ProductList"
+import './fonts/Gilroy/Gilroy-Bold.ttf'
+import { useTelegram } from "./hooks/useTelegram"
+import MainPage from './page/mainPage/mainPage'
+import Menu from './page/menu/menu'
 
 function App() {
     const {onToggleButton, tg} = useTelegram();
@@ -15,9 +17,10 @@ function App() {
 
     return (
         <div className="App">
-            <Header />
             <Routes>
-                <Route index element={<ProductList />}/>
+                <Route index element={<MainPage />}/>
+                <Route path={'menu'} element={<Menu />} />
+                <Route path={'products'} element={<ProductList />}/>
                 <Route path={'form'} element={<Form />}/>
             </Routes>
         </div>
