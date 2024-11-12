@@ -24,6 +24,7 @@ const AddAccount = () => {
 					email: emailRef.current.value,
 					pasport: isChecked,
 					queryId,
+					userId: tg.user.userId,
 			}
 			fetch('https://testbot-nebeadidd.amvera.io/added-account', {
 					method: 'POST',
