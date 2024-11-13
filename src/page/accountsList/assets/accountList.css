@@ -5,8 +5,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	padding: 10px;
-	overflow: scroll;
+	padding: 15px;
+	overflow: auto;
 	.items{
 		width: 100%;
 		height: 100%;
@@ -76,7 +76,7 @@
 				width: 280px;
 				border-radius: 9px;
 				height: 120px;
-				background-color: #212121;
+				border: 1px solid #717171;
 			}
 			.input_item{
 				p{
