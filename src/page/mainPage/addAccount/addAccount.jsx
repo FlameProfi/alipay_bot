@@ -24,7 +24,7 @@ const AddAccount = () => {
 					queryId,
 					userId: user.id,
 			}
-			fetch('https://bottg-nebeadidd.amvera.io/user', {
+			fetch('https://api.nebeadidd.ru/user', {
 					method: 'POST',
 					headers: {
 							'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const AddAccount = () => {
 			})
 			tg.showAlert("Данные отправлены успешно");
 			tg.HapticFeedback.impactOccurred('heavy')
-			navigate("/home")
+			navigate("/home", {replace: true})
 	}, [])
 
 	useEffect(() => {
