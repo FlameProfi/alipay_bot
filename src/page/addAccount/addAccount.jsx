@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useTelegram } from "../../../hooks/useTelegram"
+import { useTelegram } from "../../hooks/useTelegram"
 import './assets/addAccount.css'
 import warning_ico from './assets/warning_ico.svg'
 
