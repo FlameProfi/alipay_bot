@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTelegram } from "../../hooks/useTelegram"
 import './assets/menu.css'
@@ -21,7 +21,7 @@ const Menu = () => {
 		})
 			setAdmin(response);
 		};
-
+		
 		useEffect(() => {
 			getApiData();
 		}, []);
