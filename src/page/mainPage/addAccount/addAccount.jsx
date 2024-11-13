@@ -33,7 +33,7 @@ const AddAccount = () => {
 			})
 			tg.showAlert("Данные отправлены успешно");
 			tg.HapticFeedback.impactOccurred('heavy')
-			navigate("/home", {replace: true})
+			navigate("/menu", {replace: true})
 	}, [])
 
 	useEffect(() => {
