@@ -18,6 +18,21 @@ const AccountsList = () => {
     const {tg, user, queryId} = useTelegram();
     const navigate = useNavigate();
 		const [accounts, setAccounts] = useState([])
+		// const data = {
+		// 	userId: 5589964967,
+		// }
+
+		// const getApiData = async () => {
+		// 	const response = await fetch('http://localhost:4000/user/getAccounts', {
+		// 		method: 'POST',
+		// 		headers: {
+		// 				'Content-Type': 'application/json',
+		// 		},
+		// 		body: JSON.stringify(data)
+		// })
+
+		// };
+		
 		if(user){ 
 		const data = {
 			userId: user.id,
@@ -30,7 +45,8 @@ const AccountsList = () => {
 				},
 				body: JSON.stringify(data)
 		})
-			setAccounts(response);
+			const result = await response.json()
+			setAccounts(result);
 		};
 		
 		useEffect(() => {
@@ -60,7 +76,7 @@ const AccountsList = () => {
 							</>
 							)} </>: <h1>Пока нету аккаунтов</h1>
 						}
-							{/* <button onClick={() => getStatusMessage("На проверке")}>ПРОГНАТЬ</button> */}
+							{/* <button onClick={() => getApiData()}>ПРОГНАТЬ</button> */}
 						</div>
 						</div>
         </div>
