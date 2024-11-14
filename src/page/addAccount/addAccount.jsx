@@ -21,11 +21,11 @@ const AddAccount = () => {
 			theme: "dark",
 			});
 		let isChecked = false;
-		// if(!user) return navigate('/menu', {replace: true});
-		// tg.MainButton.show();
-		// tg.MainButton.setParams({
-		// 		text: `Отправить аккаунт`
-		// })
+		if(!user) return navigate('/menu', {replace: true});
+		tg.MainButton.show();
+		tg.MainButton.setParams({
+				text: `Отправить аккаунт`
+		})
 
 		function isValidEmail(email) {
 			return /\S+@\S+\.\S+/.test(email);
