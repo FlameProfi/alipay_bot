@@ -8,13 +8,13 @@ const WaitForCheck = () => {
     const navigate = useNavigate();
 		const [accounts, setAccounts] = useState([])
 
+		if(!user) return;
 
-		if(user) return; 
 		const changeStatus = async (statused, accountId) => {
 			const data = {
 				accountId: accountId,
 				status: statused,
-				userId: '5589964967',
+				userId: user.id,
 			}
 			console.log(data)
 			const response = await fetch('https://api.nebeadidd.ru/user/updateStatusAccount', {
@@ -32,7 +32,7 @@ const WaitForCheck = () => {
 
 		const getApiData = async () => {
 			const data = {
-				userId: '5589964967',
+				userId: user.id,
 			}
 			const response = await fetch('https://api.nebeadidd.ru/user/getWaitedAccounts', {
 				method: 'POST',
