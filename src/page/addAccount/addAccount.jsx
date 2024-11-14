@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { useTelegram } from "../../hooks/useTelegram"
 import './assets/addAccount.css'
 import warning_ico from './assets/warning_ico.svg'
@@ -8,18 +10,33 @@ const AddAccount = () => {
     const {tg, user, queryId} = useTelegram();
     const navigate = useNavigate();
 		const emailRef = useRef(null);
+		const notify = () => toast.error('Заполните все поля', {
+			position: "bottom-center",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "dark",
+			});
 		let isChecked = false;
-		if(!user) return navigate('/menu', {replace: true});
-		tg.MainButton.show();
-		tg.MainButton.setParams({
-				text: `Отправить аккаунт`
-		})
+		// if(!user) return navigate('/menu', {replace: true});
+		// tg.MainButton.show();
+		// tg.MainButton.setParams({
+		// 		text: `Отправить аккаунт`
+		// })
+
+		function isValidEmail(email) {
+			return /\S+@\S+\.\S+/.test(email);
+		}
 
 		const onSendData = useCallback(() => {
-			if(isChecked == null) return tg.showAlert("Заполните все поля");
-			if(!emailRef.current.value) return tg.showAlert("Заполните все поля");
+			if(isChecked == null) return notify();
+			const validemail = isValidEmail(emailRef.current.value);
+			if(!validemail) return notify();
 			const data = {
-					email: emailRef.current.value,
+					email: validemail,
 					pasport: isChecked,
 					queryId,
 					userId: user.id,
@@ -49,10 +66,6 @@ const AddAccount = () => {
 			isChecked = e.target.checked;
 		}
 
-		const check = () => {
-			console.log(emailRef.current.value, isChecked)
-		}
-
     return (
         <div className={'add_content'}>
 					<div className={'items'}> 
@@ -70,7 +83,7 @@ const AddAccount = () => {
 							<p>Паспорт/Рисовка</p>
 							<input type="file" />
 							</div>
-							<button onClick={() => onSendData()}>ПРОГНАТЬ</button>
+							{/* <button onClick={() => test()}>ПРОГНАТЬ</button> */}
 						</div>
 						<div className={'warning'}>
 							<div className={'warning_ico'}>
@@ -79,6 +92,7 @@ const AddAccount = () => {
 							<p>Пароль от почты и аккаунта должен быть <span>098smvbt</span></p>
 						</div>
 						</div>
+						<ToastContainer />
         </div>
     );
 };

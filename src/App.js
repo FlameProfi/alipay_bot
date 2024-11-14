@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Form from "./components/Form/Form"
+import Header from './components/Header/Header'
 import ProductList from "./components/ProductList/ProductList"
 import './fonts/Gilroy/Gilroy-Bold.ttf'
 import { useTelegram } from "./hooks/useTelegram"
@@ -19,6 +20,7 @@ function App() {
 
     return (
         <div className="App">
+            <Header />
             <Routes>
                 <Route index element={<MainPage />}/>
                 <Route path={'menu'} element={<Menu />} />

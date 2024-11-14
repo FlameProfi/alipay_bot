@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../../components/Header/Header'
 import logo from './assets/logo.png'
 import './assets/mainPage.css'
 
@@ -12,7 +11,7 @@ const mainPage = () => {
     }, 2000);
     return (
         <> 
-        <Header />
+        {/* <Header /> */}
         <div className={'main_content'}>
             <img src={logo} alt="" />
             <h1>Приветствуем вас<br/> сейчас произойдет перенаправление</h1>
