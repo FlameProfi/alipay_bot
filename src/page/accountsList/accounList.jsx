@@ -6,9 +6,9 @@ import './assets/accountList.css'
 
 const products = [
 	{id: 1, email: "rannylegend@mail.ru", status: "На проверке"},
-	{id: 1, email: "rannylegend@mail.ru", status: "На проверке"},
-	{id: 1, email: "rannylegend@mail.ru", status: "На проверке"},
-	{id: 1, email: "rannylegend@mail.ru", status: "На проверке"},
+	{id: 1, email: "rannylegend@mail.ru", status: "Залит"},
+	{id: 1, email: "rannylegend@mail.ru", status: "Валидный"},
+	{id: 1, email: "rannylegend@mail.ru", status: "Не валидный"},
 	{id: 1, email: "rannylegend@mail.ru", status: "На проверке"}
 ]
 
@@ -18,6 +18,8 @@ const AccountsList = () => {
     const {tg, user, queryId} = useTelegram();
     const navigate = useNavigate();
 		const [accounts, setAccounts] = useState([])
+		let textColor;
+
 		// const data = {
 		// 	userId: 5589964967,
 		// }
@@ -32,6 +34,31 @@ const AccountsList = () => {
 		// })
 
 		// };
+
+		const StatusComponent = ({ status }) => {
+			switch (status) {
+				case 'На проверке':
+					textColor = '#ffae49';
+					break;
+				case 'Валидный':
+					textColor = '#00ab17';
+					break;
+				case 'Не валидный':
+					textColor = '#b50000';
+					break;
+				default:
+					textColor = '#fff';
+			}
+
+			return(
+					<div className={'input_item'}>
+							<p>Статус</p>
+							<input type="text" value={status} disabled={true} style={{
+								color: `${textColor}`
+							}}/>
+							</div>
+			)
+		}
 		
 		if(user){ 
 		const data = {
@@ -68,15 +95,12 @@ const AccountsList = () => {
 							<p>Почта</p>
 							<input type="text" value={item.email} disabled={true}/>
 							</div>
-							<div className={'input_item'}>
-							<p>Статус</p>
-							<input type="text" value={item.status} disabled={true}/>
-							</div>
+							<StatusComponent status={item.status} /> 
 							</div>
 							</>
 							)} </>: <h1>Пока нету аккаунтов</h1>
 						}
-							{/* <button onClick={() => getApiData()}>ПРОГНАТЬ</button> */}
+							{/* <button onClick={() => StatusComponent('На проверке')}>ПРОГНАТЬ</button> */}
 						</div>
 						</div>
         </div>

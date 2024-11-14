@@ -22,6 +22,10 @@
 
 		.input_item_checkbox{
 			user-select: none;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			p{
 				font-family: 'Gilroy';
 				font-style: normal;

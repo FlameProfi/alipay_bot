@@ -10,6 +10,7 @@ import AccountsList from './page/accountsList/accounList'
 import AddAccount from './page/addAccount/addAccount'
 import MainPage from './page/mainPage/mainPage'
 import Menu from './page/menu/menu'
+import News from './page/news/news'
 
 function App() {
     const {onToggleButton, tg} = useTelegram();
@@ -24,6 +25,7 @@ function App() {
             <Routes>
                 <Route index element={<MainPage />}/>
                 <Route path={'menu'} element={<Menu />} />
+                <Route path={'news'} element={<News />} />
                 <Route path={'add'} element={<AddAccount />} />
                 <Route path={'mylist'} element={<AccountsList />} />
                 <Route path={'products'} element={<ProductList />}/>
