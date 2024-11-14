@@ -46,7 +46,7 @@ const Menu = () => {
 						<p>Информация</p>
 						</div>
 						{admin? <>
-							<div className={'item'}>
+							<div className={'item'} onClick={() => navigate('/admin_accounts')}>
 								<p>Ожидающие проверки</p>
 							</div>
 						</> : <></>}
