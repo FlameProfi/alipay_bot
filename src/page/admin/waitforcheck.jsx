@@ -9,7 +9,7 @@ const WaitForCheck = () => {
 		const [accounts, setAccounts] = useState([])
 
 
-		if(user) { 
+		if(user) return; 
 		const changeStatus = async (statused, accountId) => {
 			const data = {
 				accountId: accountId,
@@ -50,7 +50,7 @@ const WaitForCheck = () => {
 		useEffect(() => {
 			getApiData();
 		}, []);
-	}
+	
     return (
         <div className={'admin_content'}>
 					<div className={'items'}> 

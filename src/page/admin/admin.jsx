@@ -7,9 +7,8 @@ const Admin = () => {
 		const {user} = useTelegram();
     const navigate = useNavigate();
 		const [accounts, setAccounts] = useState([])
+		if(user) return; 
 
-
-		if(user){ 
 		const changeStatus = async (statused, accountId) => {
 			const data = {
 				accountId: accountId,
@@ -50,7 +49,6 @@ const Admin = () => {
 		useEffect(() => {
 			getApiData();
 		}, []);
-	}
     return (
         <div className={'admin_content'}>
 					<div className={'items'}> 
