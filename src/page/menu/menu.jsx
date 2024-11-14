@@ -30,6 +30,9 @@ const Menu = () => {
         <div className={'menu_content'}>
 					<div className={'items'}> 
 						<h1>Меню</h1>
+						<div className={'item'} onClick={() => navigate('/cabinet')}>
+						<p>Личный кабинет</p>
+						</div>
 						<div className={'item'} onClick={() => navigate('/news')}>
 						<p>Новости</p>
 						</div>

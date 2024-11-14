@@ -8,6 +8,7 @@ import './fonts/Gilroy/Gilroy-Bold.ttf'
 import { useTelegram } from "./hooks/useTelegram"
 import AccountsList from './page/accountsList/accounList'
 import AddAccount from './page/addAccount/addAccount'
+import Cabinet from './page/cabinet/cabinet'
 import MainPage from './page/mainPage/mainPage'
 import Menu from './page/menu/menu'
 import News from './page/news/news'
@@ -26,6 +27,7 @@ function App() {
                 <Route index element={<MainPage />}/>
                 <Route path={'menu'} element={<Menu />} />
                 <Route path={'news'} element={<News />} />
+                <Route path={'cabinet'} element={<Cabinet />} />
                 <Route path={'add'} element={<AddAccount />} />
                 <Route path={'mylist'} element={<AccountsList />} />
                 <Route path={'products'} element={<ProductList />}/>
