@@ -36,7 +36,7 @@ const AddAccount = () => {
 			const validemail = isValidEmail(emailRef.current.value);
 			if(!validemail) return notify();
 			const data = {
-					email: validemail,
+					email: emailRef.current.value,
 					pasport: isChecked,
 					queryId,
 					userId: user.id,
@@ -79,10 +79,10 @@ const AddAccount = () => {
 							<p style={{fontSize: "14px" }}>Паспорт?(если да, прожимаем кнопку)</p>
 							<input type="checkbox" required={true} onChange={e => handleChange(e)} />
 							</div>
-							<div className={'input_item'}>
+							{/* <div className={'input_item'}>
 							<p>Паспорт/Рисовка</p>
 							<input type="file" />
-							</div>
+							</div> */}
 							{/* <button onClick={() => test()}>ПРОГНАТЬ</button> */}
 						</div>
 						<div className={'warning'}>
