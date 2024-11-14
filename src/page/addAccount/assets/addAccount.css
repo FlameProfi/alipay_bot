@@ -69,6 +69,8 @@
 			display: flex;
 			flex-direction: column;
 			gap: 15px;
+			justify-content: center;
+			align-items: center;
 			.input_item{
 				p{
 					font-family: 'Gilroy';
